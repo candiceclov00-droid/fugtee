@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Fighters — Arcade Combat 2D</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>" />
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="960" height="540"></canvas>
+    
+    <!-- HUD overlay -->
+    <div id="hud" class="hidden">
+      <div class="health-bar left">
+        <div class="name" id="p1-name">PLAYER 1</div>
+        <div class="bar-bg"><div class="bar-fill" id="p1-health"></div></div>
+        <div class="special-bar"><div class="special-fill" id="p1-special"></div></div>
+      </div>
+      <div class="timer" id="timer">99</div>
+      <div class="health-bar right">
+        <div class="name" id="p2-name">PLAYER 2</div>
+        <div class="bar-bg"><div class="bar-fill" id="p2-health"></div></div>
+        <div class="special-bar"><div class="special-fill" id="p2-special"></div></div>
+      </div>
+    </div>
+
+    <!-- Menus -->
+    <div id="menu-overlay">
+      <div id="main-menu" class="menu-screen">
+        <h1 class="title">PIXEL FIGHTERS</h1>
+        <p class="subtitle">ARCADE COMBAT 2D</p>
+        <div class="menu-buttons">
+          <button id="btn-start" class="menu-btn">START GAME</button>
+          <button id="btn-how" class="menu-btn">HOW TO PLAY</button>
+          <button id="btn-credits" class="menu-btn">CREDITS</button>
+        </div>
+        <p class="footer">Press ENTER or click START</p>
+      </div>
+
+      <div id="how-to" class="menu-screen hidden">
+        <h2>CONTROLS</h2>
+        <div class="controls-grid">
+          <div>
+            <h3>PLAYER 1</h3>
+            <ul>
+              <li><kbd>Q</kbd> / <kbd>D</kbd> — Move</li>
+              <li><kbd>Z</kbd> — Jump</li>
+              <li><kbd>S</kbd> — Block</li>
+              <li><kbd>F</kbd> — Punch</li>
+              <li><kbd>G</kbd> — Kick</li>
+              <li><kbd>H</kbd> — Special</li>
+            </ul>
+          </div>
+          <div>
+            <h3>PLAYER 2</h3>
+            <ul>
+              <li><kbd>←</kbd> / <kbd>→</kbd> — Move</li>
+              <li><kbd>↑</kbd> — Jump</li>
+              <li><kbd>↓</kbd> — Block</li>
+              <li><kbd>1</kbd> — Punch</li>
+              <li><kbd>2</kbd> — Kick</li>
+              <li><kbd>3</kbd> — Special</li>
+            </ul>
+          </div>
+        </div>
+        <button class="menu-btn back-btn">BACK</button>
+      </div>
+
+      <div id="credits" class="menu-screen hidden">
+        <h2>CREDITS</h2>
+        <p>Pixel Fighters — Pure HTML5 / Canvas</p>
+        <p>Made for GitHub Pages</p>
+        <p>No external assets required</p>
+        <button class="menu-btn back-btn">BACK</button>
+      </div>
+
+      <div id="char-select" class="menu-screen hidden">
+        <h2>SELECT FIGHTERS</h2>
+        <div class="select-area">
+          <div class="player-select" id="p1-select">
+            <h3>PLAYER 1</h3>
+            <div class="char-grid" id="p1-chars"></div>
+            <p class="selected-name" id="p1-selected-name">—</p>
+          </div>
+          <div class="vs">VS</div>
+          <div class="player-select" id="p2-select">
+            <h3>PLAYER 2</h3>
+            <div class="char-grid" id="p2-chars"></div>
+            <p class="selected-name" id="p2-selected-name">—</p>
+          </div>
+        </div>
+        <div class="arena-select">
+          <h3>ARENA</h3>
+          <div class="arena-grid" id="arena-grid"></div>
+        </div>
+        <button id="btn-fight" class="menu-btn" disabled>FIGHT !</button>
+      </div>
+
+      <div id="result-screen" class="menu-screen hidden">
+        <h2 id="result-title">KO !</h2>
+        <p id="result-text">PLAYER 1 WINS</p>
+        <button id="btn-rematch" class="menu-btn">REMATCH</button>
+        <button id="btn-menu" class="menu-btn">MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
